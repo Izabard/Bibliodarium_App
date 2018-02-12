@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '3.3.7'
+gem 'bcrypt', '3.1.11'
 
 
 group :development, :test do
