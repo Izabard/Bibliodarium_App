@@ -24,4 +24,7 @@ Rails.application.routes.draw do
 
   delete '/logout', to: 'sessions#destroy'
 
+  resources :books
+
+  get '/edit', to: 'books#edit'
 end

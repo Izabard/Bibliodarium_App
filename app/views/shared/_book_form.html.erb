@@ -1,0 +1,11 @@
+<%= form_for(@book) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="field">
+        <%= f.label :Title %>
+        <%= f.text_field :title, class: 'form-control' %>
+
+        <%= f.label :Author %>
+        <%= f.text_field :author, class: 'form-control' %>
+    </div>
+    <%= f.submit "Añadir", class: "btn btn-primary" %>
+<% end %>

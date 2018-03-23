@@ -1,0 +1,13 @@
+<%= form_for(@book) do |b| %>
+
+    <%= render 'shared/error_messages', object: b.object %>
+    
+    <%= b.label :title %>
+    <%= b.text_field :title, class: 'form-control' %>
+
+    <%= b.label :author %>
+    <%= b.text_field :author, class: 'form-control' %>
+    
+    <%= b.submit yield(:button_text), class: 'btn btn-primary' %>
+
+<% end %>
