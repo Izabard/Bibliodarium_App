@@ -1,5 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 /* universal */
 
@@ -29,6 +31,23 @@ textarea {
 #header{
     background-color: #fff;
 }
+
+/* navigation bar */
+#mynavwithoutdefaultclass{
+    background: transparent;
+    border-color:transparent;
+   
+}
+#main-nav-collapse{
+     a{
+        color:#337ab7;
+    }
+    a:hover{
+        color:#337ab7;
+         background-color: #eeeeee;
+    }
+   
+}
 /* logo */
 
 #logo{
@@ -47,11 +66,24 @@ textarea {
 
 /* footer */
 footer{
-    margin-top: 175px;
-    padding-top: 5px;
-    border-top: 1px solid #eaeaea;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     color: darkgray;
+    background-color: #fff;
 }
+
+#container-footer{
+    border-top: 1px solid #eaeaea;
+    padding-top: 5px;
+}
+
+
+
+#aside-pad{
+    padding: 0px;
+}
+
 footer small {
     float: left;
 }
@@ -102,7 +134,7 @@ input {
 
 /* books */
 .books {
-    list-style: inherit;
+    list-style: none;
     padding: 0;
     li {
         padding: 10px;
@@ -136,12 +168,21 @@ span.picture {
 }
 
 .feed {
-    padding: 0;
+    padding-bottom: 15%;
     li {
         list-style: none;
         padding: 10px;
         border-top: 1px solid #e8e8e8;
     }
+    #h3-first{
+        text-align: center;
+    }
+    ol{
+        padding: 0px;
+    }
+}
+#user-show{
+    padding-bottom: 15%;
 }
 
 .user_gravatar {
@@ -162,7 +203,50 @@ span.picture {
     
       
 }
+.withoutPad{
+    padding: 0px;
+}
 
 .aside_user_info     {
     padding: 30px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
+
+#profile-pic{
+    border-radius: 50%;
+    
+}
+
+.icons{
+    font-size: 35px;
+}
+
+#social-icons{
+    padding-bottom: 15%;
+    padding-top: 5%;
+}
+
+.contact-text{
+     color: darkgray;
+    h2{
+        padding-top: 5%;
+    }
+     
+}
+.about-text{
+    color: darkgray;
+    h2{
+        padding-top: 5%;
+    }
+   
+}
+
+#items-technologies{
+    padding-bottom: 15%;
+
+     h3{
+        color: darkgray;
+    }
+}
+

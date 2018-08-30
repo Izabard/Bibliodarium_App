@@ -3,7 +3,7 @@
   <head>
     <title><%= yield(:title) %> | Bibliodarium </title>
 
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all',
@@ -16,13 +16,15 @@
   </head>
 
   <body>
+    
     <%= render 'layouts/header'%>
     <div class="container">
-     <% flash.each do |message_type, message| %>
+      <% flash.each do |message_type, message| %>
          <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>
       <%= yield %>
-      <%= render 'layouts/footer' %>
+  
     </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

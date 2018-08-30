@@ -1,21 +1,28 @@
 <% provide(:title, @user.username )  %>
 <div class="row">
-    <aside class="col-md-4">
-        <section class="user_info">
-            <h1>
-                <%= gravatar_for @user %>
-                <%= @user.username%>
-            </h1>
-        </section>
-    </aside>
-    <div class="col-md-8">
-        <% if @user.books.any? %>
-            <h3>Books (<%= @user.books.count %>) </h3>
-            <ol class="books">
-                <%= render @books %>
-            </ol>
-            <%= will_paginate @books %>
-        <% end %>
-    </div>
+    <div class="col-md-1">
 
+    </div>
+        <div class="col-md-10">
+            <aside class="col-md-4 withoutPad center">
+                <section class="user_info">
+                    <h1>
+                        <%= gravatar_for @user %>
+                        <%= @user.username%>
+                    </h1>
+                </section>
+            </aside>
+            <div id="user-show" class="col-md-8">
+                <% if @user.books.any? %>
+                    <h3>Books (<%= @user.books.count %>) </h3>
+                    <ol class="books">
+                        <%= render @books %>
+                    </ol>
+                    <%= will_paginate @books %>
+                <% end %>
+            </div>
+
+        </div>
+    <div class="col-md-1">
+    </div>
 </div>
