@@ -1,7 +1,8 @@
 <li id="book-<%= book.id %>">
    
     <h3 class="title"><%= book.title %></h3>
-    <span class="author"><%= book.author %>, </span>
+    <span class="author"><%= book.author %> </span><br>
+    <small class=""><%= book.category.name if book.category%></small><br>
     <span  class="timestamp">
         Finished <%= time_ago_in_words(book.created_at) %> ago.
         <% if current_user?(book.user) %>

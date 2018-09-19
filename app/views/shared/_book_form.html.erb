@@ -6,6 +6,8 @@
 
         <%= f.label :Author %>
         <%= f.text_field :author, class: 'form-control' %>
+
+        <%= f.collection_select(:category_id, Category.all, :id, :name, :prompt => "Select an category") %>
     </div>
     <%= f.submit "Añadir", class: "btn btn-primary" %>
 <% end %>

@@ -8,6 +8,8 @@
     <%= b.label :author %>
     <%= b.text_field :author, class: 'form-control' %>
     
+    <%= b.collection_select(:category_id, Category.all, :id, :name, :prompt => "Select an category") %>
+        
     <%= b.submit yield(:button_text), class: 'btn btn-primary' %>
 
 <% end %>
