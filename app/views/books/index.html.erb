@@ -1,0 +1,33 @@
+<% provide(:title, @category.name ) %>
+<div class="row">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+    <aside class="col-md-4 withoutPad center">
+        <section class="user_info">
+            <h1>
+                <%= gravatar_for current_user %>
+                <%= current_user.username %>
+            </h1>
+        </section>
+    </aside>
+
+    <div id="user-show" class="col-md-8">
+
+        <% if current_user.books.any? %>
+            <h3>Books of <%= @category.name %> (<%= @books.count %>)</h3>
+            <ol style="list-style: none" class="books">
+                <%= render @books %>
+            </ol>
+            <%# will_paginate @books  %>
+        <% end %>    
+    </div>
+
+    </div>
+
+    <div class="col-md-1">
+
+    </div>
+</div>
+

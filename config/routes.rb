@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'category/index'
+
   get 'sessions/new'
 
   get 'users/new'
@@ -27,4 +29,6 @@ Rails.application.routes.draw do
   resources :books
 
   get '/edit', to: 'books#edit'
+
+  get '/category', to: 'category#show'
 end

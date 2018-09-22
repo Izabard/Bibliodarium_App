@@ -15,6 +15,18 @@
             <div id="user-show" class="col-md-8">
                 <% if @user.books.any? %>
                     <h3>Books (<%= @user.books.count %>) </h3>
+                    
+                   <li class="dropdown" style="list-style: none">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
+                    <ul class="dropdown-menu" roles="menu">
+                        <% Category.all.each do |category| %>
+                        <li>
+                        <%= link_to category.name, books_path(category: category.name), class: "link" %>
+                        </li>
+                        <% end %>
+                    </ul>
+                   </li>
+                    
                     <ol class="books">
                         <%= render @books %>
                     </ol>
