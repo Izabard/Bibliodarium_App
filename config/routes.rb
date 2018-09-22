@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   
-  get 'category/index'
-
   get 'sessions/new'
 
   get 'users/new'
@@ -18,7 +16,9 @@ Rails.application.routes.draw do
 
   post '/signup', to: 'users#create'
 
-  resources :users
+  resources :users do
+    resources :books, only: [:index]
+  end
 
   get '/login', to: 'sessions#new'
 
@@ -29,6 +29,4 @@ Rails.application.routes.draw do
   resources :books
 
   get '/edit', to: 'books#edit'
-
-  get '/category', to: 'category#show'
 end
