@@ -21,6 +21,7 @@ gem 'will_paginate', '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'faker', '1.7.3'
 gem 'font-awesome-sass', '~> 5.2.0'
+gem 'stateful_enum'
 
 group :development, :test do
  

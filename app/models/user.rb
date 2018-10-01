@@ -10,6 +10,6 @@ class User < ApplicationRecord
     validates :password, presence: true, length: { minimum: 6 }, allow_nil: true      
     
     def feed
-        Book.where("user_id = ?", id)
+       Book.where("user_id = ?", id)
     end
 end

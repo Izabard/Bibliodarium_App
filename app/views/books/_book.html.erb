@@ -1,10 +1,28 @@
 <li id="book-<%= book.id %>">
-   
+
+    <% if book.status == 'reading' %>
+
+    <h3 class="title"><%= book.title %> <small>(current reading)</small> </h3>
+    <span class="author"><%= book.author %> </span><br>
+    <small class=""><%= book.category.name if book.category%></small><br>
+    <span class="timestamp">
+        <small> Started <%= time_ago_in_words(book.started_at) %> ago. </small>
+        <% if current_user?(book.user) %>
+            <%= link_to "delete", book, method: :delete,
+                                             data: { confirm: "Seguro?" } %> |
+                                            <%= link_to "edit", edit_book_path(id: book) %> |
+                                            <%= link_to "mark as finished", finish_book_path(book), method: :patch %> |
+                                            <%= link_to "cancel", cancel_book_path(book), method: :patch %>
+        <% end %> 
+    </span>
+
+    <% elsif book.status == 'finished' %>
+
     <h3 class="title"><%= book.title %></h3>
     <span class="author"><%= book.author %> </span><br>
     <small class=""><%= book.category.name if book.category%></small><br>
-    <span  class="timestamp">
-        Finished <%= time_ago_in_words(book.created_at) %> ago.
+    <span class="timestamp">
+        <small> Finished <%= time_ago_in_words(book.finished_at) %> ago. </small>
         <% if current_user?(book.user) %>
             <%= link_to "delete", book, method: :delete,
                                              data: { confirm: "Seguro?" } %> |
@@ -12,4 +30,17 @@
         <% end %> 
     </span>
 
+    <% else %>
+    <h3 class="title books-cancelled"><%= book.title %></h3>
+    <span class="author books-cancelled"><%= book.author %> </span><br>
+    <small class="books-cancelled"><%= book.category.name if book.category%></small><br>
+    <span class="timestamp books-cancelled">
+        <small class="books-cancelled"><%= book.status %> <%= time_ago_in_words(book.cancelled_at) %> ago.</small>
+        <% if current_user?(book.user) %>
+            <%# link_to "delete", book, method: :delete,
+                                             data: { confirm: "Seguro?" } %> 
+                                            <%# link_to "edit", edit_book_path(id: book) %>
+        <% end %> 
+    </span>
+    <% end %>
 </li>

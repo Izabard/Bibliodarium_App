@@ -26,7 +26,12 @@ Rails.application.routes.draw do
 
   delete '/logout', to: 'sessions#destroy'
 
-  resources :books
+  resources :books do
+   member do
+    patch :finish
+    patch :cancel
+   end
+  end
 
   get '/edit', to: 'books#edit'
 end
