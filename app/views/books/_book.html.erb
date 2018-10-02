@@ -6,6 +6,16 @@
     <span class="author"><%= book.author %> </span><br>
     <small class=""><%= book.category.name if book.category%></small><br>
     <span class="timestamp">
+    <% if book.started_at.nil? %>
+        <small><%= book.status %></small>
+        <% if current_user?(book.user) %>
+            <%= link_to "delete", book, method: :delete,
+                                             data: { confirm: "Seguro?" } %> |
+                                            <%= link_to "edit", edit_book_path(id: book) %> |
+                                            <%= link_to "mark as finished", finish_book_path(book), method: :patch %> |
+                                            <%= link_to "cancel", cancel_book_path(book), method: :patch %>
+        <% end %> 
+    <% else  %>
         <small> Started <%= time_ago_in_words(book.started_at) %> ago. </small>
         <% if current_user?(book.user) %>
             <%= link_to "delete", book, method: :delete,
@@ -14,6 +24,7 @@
                                             <%= link_to "mark as finished", finish_book_path(book), method: :patch %> |
                                             <%= link_to "cancel", cancel_book_path(book), method: :patch %>
         <% end %> 
+    <% end %>
     </span>
 
     <% elsif book.status == 'finished' %>
@@ -22,12 +33,22 @@
     <span class="author"><%= book.author %> </span><br>
     <small class=""><%= book.category.name if book.category%></small><br>
     <span class="timestamp">
+    <% if book.started_at.nil? %>
+      <small><%= book.status %></small>
+        <% if current_user?(book.user) %>
+            <%= link_to "delete", book, method: :delete,
+                                             data: { confirm: "Seguro?" } %> |
+                                            <%= link_to "edit", edit_book_path(id: book) %>
+        <% end %> 
+    <% else %>
         <small> Finished <%= time_ago_in_words(book.finished_at) %> ago. </small>
         <% if current_user?(book.user) %>
             <%= link_to "delete", book, method: :delete,
                                              data: { confirm: "Seguro?" } %> |
                                             <%= link_to "edit", edit_book_path(id: book) %>
         <% end %> 
+
+    <% end %>
     </span>
 
     <% else %>
@@ -35,12 +56,26 @@
     <span class="author books-cancelled"><%= book.author %> </span><br>
     <small class="books-cancelled"><%= book.category.name if book.category%></small><br>
     <span class="timestamp books-cancelled">
-        <small class="books-cancelled"><%= book.status %> <%= time_ago_in_words(book.cancelled_at) %> ago.</small>
+    <% if book.status.nil? %>
+      <small class="books-cancelled"><%= book.status %> <%= time_ago_in_words(book.cancelled_at) %> ago.</small>
+        <% if current_user?(book.user) %>
+            <%# link_to "delete", book, method: :delete,
+                                             data: { confirm: "Seguro?" } %> 
+                                            <%# link_to "edit", edit_book_path(id: book) %>
+        <% end %>
+    <% else %>
+        
+
+        <small class="books-cancelled"><%= book.status %></small>
+   
+        
         <% if current_user?(book.user) %>
             <%# link_to "delete", book, method: :delete,
                                              data: { confirm: "Seguro?" } %> 
                                             <%# link_to "edit", edit_book_path(id: book) %>
         <% end %> 
+
+    <% end %>
     </span>
     <% end %>
 </li>
