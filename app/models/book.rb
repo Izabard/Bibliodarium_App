@@ -33,4 +33,9 @@ class Book < ApplicationRecord
     validates :title, presence: true
     validates :author, presence: true
     validates :category, presence: true
+
+    def time_reading(param1, param2 = Time.now)
+        time_diff = (param2 - param1)
+        return (time_diff / 1.day).round
+    end     
 end

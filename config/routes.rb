@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
 
   resources :users do
-    resources :books, only: [:index]
+    resources :books, only: [:index, :show]
   end
 
   get '/login', to: 'sessions#new'
@@ -30,6 +30,7 @@ Rails.application.routes.draw do
    member do
     patch :finish
     patch :cancel
+    get :info
    end
   end
 

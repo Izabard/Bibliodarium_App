@@ -22,7 +22,8 @@
                                              data: { confirm: "Seguro?" } %> |
                                             <%= link_to "edit", edit_book_path(id: book) %> |
                                             <%= link_to "mark as finished", finish_book_path(book), method: :patch %> |
-                                            <%= link_to "cancel", cancel_book_path(book), method: :patch %>
+                                            <%= link_to "cancel", cancel_book_path(book), method: :patch %> |
+                                            <%= link_to "info", info_book_path(book.id), class: "link" %>
         <% end %> 
     <% end %>
     </span>
@@ -45,7 +46,8 @@
         <% if current_user?(book.user) %>
             <%= link_to "delete", book, method: :delete,
                                              data: { confirm: "Seguro?" } %> |
-                                            <%= link_to "edit", edit_book_path(id: book) %>
+                                            <%= link_to "edit", edit_book_path(id: book) %> |
+                                            <%= link_to "info", info_book_path(book.id), class: "link" %>
         <% end %> 
 
     <% end %>

@@ -13,6 +13,9 @@ class BooksController < ApplicationController
           @books = current_user.books.where(category_id: @category_id)
         end
     end
+    def show
+
+    end
     
     def create
         @book = current_user.books.build(book_params)
@@ -61,6 +64,9 @@ class BooksController < ApplicationController
         @book.update_attributes(cancelled_at: Time.now)
         flash[:success] = "Book not finished :("
         redirect_to root_path
+    end
+    def info
+        @book = Book.find(params[:id])
     end
 
     private
