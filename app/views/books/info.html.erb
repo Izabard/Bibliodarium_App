@@ -6,6 +6,7 @@
    
     <div class="center">
         <h3><strong><%= @book.title %></strong></h3>
+        <%= image_tag @book.cover.url if @book.cover? %>
         <h4><%= @book.category.name %></h4>
         <h3>State: </h3> <p> <%= @book.status %></p> 
     </div>

@@ -29,13 +29,23 @@ class Book < ApplicationRecord
     belongs_to :user
     belongs_to :category
     default_scope -> { order(created_at: :desc) }
+    mount_uploader :cover, CoverUploader
     validates :user_id, presence: true
     validates :title, presence: true
     validates :author, presence: true
     validates :category, presence: true
+    validates :cover, presence: false
+    validate :cover_size
 
     def time_reading(param1, param2 = Time.now)
         time_diff = (param2 - param1)
         return (time_diff / 1.day).round
     end     
+
+    private
+    def cover_size
+        if cover.size > 1.megabytes
+            errors.add(:cover, "should be less than 1 MB")
+        end
+    end
 end

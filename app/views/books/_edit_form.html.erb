@@ -9,7 +9,11 @@
     <%= b.text_field :author, class: 'form-control' %>
     
     <%= b.collection_select(:category_id, Category.all, :id, :name, :prompt => "Select an category") %>
-        
+    
+    <span class="cover">
+        <%= b.file_field :cover, accept: 'image/jpeg,image/gif,image/png' %>
+    </span>
+    
     <%= b.submit yield(:button_text), class: 'btn btn-primary' %>
 
 <% end %>
