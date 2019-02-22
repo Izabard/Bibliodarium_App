@@ -42,7 +42,7 @@ end
 
 group :production do
   gem 'pg', '0.18.4'
-  gem 'fog-azure-rm'
+  gem 'azure-storage-blob'
   gem 'carrierwave-azure'
 end
 
