@@ -10,8 +10,8 @@ if Rails.env.production?
         
     CarrierWave.configure do |config|
         azure_credentials = {
-          access_key_id: "izaba",
-          secret_access_key: 'inOgkKlKEuW/vkOqMxhDJ8Or7OLe13RO7f9vtCIKj6Fhdy9hwHNc8MIkPHseVf9xxO8OSD07vm4ba2zDsnE8sA=='
+          account_name: "izaba",
+          account_key: 'inOgkKlKEuW/vkOqMxhDJ8Or7OLe13RO7f9vtCIKj6Fhdy9hwHNc8MIkPHseVf9xxO8OSD07vm4ba2zDsnE8sA=='
         }
         container = "bibliodarium_app_covers"
 
