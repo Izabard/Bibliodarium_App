@@ -14,5 +14,5 @@ if Rails.env.production?
             storage_access_key: account_key
         )
     end
-    blob_client.create_block_blob(container.name)
+    blob_client.create_block_blob(container_name)
 end
