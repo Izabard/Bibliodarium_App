@@ -9,7 +9,7 @@ if Rails.env.production?
     blob_client = Azure::Blob::BlobService
 
     CarrierWave.configure do |config|
-        blob_client = Azure::Blob::BlobService.create(
+        blob_client = Azure::Storage::Blob::BlobService.create(
             storage_account_name: account_name,
             storage_access_key: account_key
         )
