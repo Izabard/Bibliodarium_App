@@ -6,7 +6,7 @@ if Rails.env.production?
     #account_key = 'inOgkKlKEuW/vkOqMxhDJ8Or7OLe13RO7f9vtCIKj6Fhdy9hwHNc8MIkPHseVf9xxO8OSD07vm4ba2zDsnE8sA=='
     container_name = 'bibliodarium_app_covers'
     #store_dir = "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-    blob_client = Azure::Blob::BlobService.
+    blob_client = Azure::Blob::BlobService
         
     CarrierWave.configure do |config|
         azure_credentials = {
