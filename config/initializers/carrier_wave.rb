@@ -14,5 +14,5 @@ if Rails.env.production?
             storage_access_key: account_key
         )
     end
-    config.directory = blob_client.create_block_blob(container.name, :storage)
+    blob_client.create_block_blob(container.name)
 end
