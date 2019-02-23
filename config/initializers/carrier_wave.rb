@@ -8,8 +8,8 @@ if Rails.env.production?
     #store_dir = "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
     blob_client = Azure::Blob::BlobService
 
-    signer = Azure::Storage::Core::Auth::SharedAccessSignatureSigner.new izaba, inOgkKlKEuW/vkOqMxhDJ8Or7OLe13RO7f9vtCIKj6Fhdy9hwHNc8MIkPHseVf9xxO8OSD07vm4ba2zDsnE8sA==
-    blob_client = Azure::Storage::Blob::BlobService.new(signer: signer)
+    signer = Azure::Core::Auth::SharedAccessSignatureSigner.new izaba, inOgkKlKEuW/vkOqMxhDJ8Or7OLe13RO7f9vtCIKj6Fhdy9hwHNc8MIkPHseVf9xxO8OSD07vm4ba2zDsnE8sA==
+    blob_client = Azure::Blob::BlobService.new(signer: signer)
         
     CarrierWave.configure do |config|
         blob_client = Azure::Storage::Blob::BlobService.create(
