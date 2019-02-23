@@ -10,8 +10,8 @@ if Rails.env.production?
 
     CarrierWave.configure do |config|
         blob_client = Azure::Storage::Blob::BlobService.create(
-            storage_account_name: 'izaba',
-            storage_access_key: 'inOgkKlKEuW/vkOqMxhDJ8Or7OLe13RO7f9vtCIKj6Fhdy9hwHNc8MIkPHseVf9xxO8OSD07vm4ba2zDsnE8sA=='
+            storage_account_name: ENV['STORAGE_ACCOUNT_NAME'],
+            storage_access_key: ENV['STORAGE_ACCESS_KEY']
         )
     end
     #blob_client.create_block_blob(container_name, store_dir, store_dir)
