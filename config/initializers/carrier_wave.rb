@@ -3,7 +3,7 @@ if Rails.env.production?
     require 'fog/azurerm'
 
     storage_account_name = 'izaba', 
-    storage_access_key = 'inOgkKlKEuW/vkOqMxhDJ8Or7OLe13RO7f9vtCIKj6Fhdy9hwHNc8MIkPHseVf9xxO8OSD07vm4ba2zDsnE8sA=='
+    storage_access_key = 'rrHX+QdbnadVQHeOejwOG3xOMgOoG80Xgh1zu9M7Y2+ahjmYfLgrVJwhhg8hwxp17pTEaQSSSZ5KVbqxJZyhLA=='
         
     CarrierWave.configure do |config|
     	FogStorage = Fog::Storage::AzureRM.new(

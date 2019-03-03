@@ -61,13 +61,6 @@ GEM
       faraday (~> 0.9)
       faraday_middleware (~> 0.10)
       nokogiri (~> 1.6.0)
-    azure-storage-blob (1.1.0)
-      azure-core (~> 0.1.13)
-      azure-storage-common (~> 1.0)
-      nokogiri (~> 1.6, >= 1.6.8)
-    azure-storage-common (1.1.0)
-      azure-core (~> 0.1.13)
-      nokogiri (~> 1.6, >= 1.6.8)
     azure_mgmt_compute (0.9.0)
       ms_rest_azure (~> 0.7.0)
     azure_mgmt_dns (0.9.0)
@@ -299,7 +292,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  azure-storage-blob
   bcrypt (= 3.1.11)
   bootstrap-sass (= 3.3.7)
   bootstrap-will_paginate (= 1.0.0)
